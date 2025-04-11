@@ -30,7 +30,7 @@ export default function Categories() {
   return (
     <>
       <h1 className="text-4xl text-center font-bold">Categories</h1>
-      <div className="flex gap-4 justify-around">
+      <section className="flex gap-4 justify-around">
         {categories.map((category) => (
           <Card key={category.categoryName} className="w-72">
             <CardHeader>
@@ -41,7 +41,7 @@ export default function Categories() {
             </CardFooter>
           </Card>
         ))}
-      </div>
+      </section>
     </>
   );
 }
