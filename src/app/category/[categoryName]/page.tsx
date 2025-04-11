@@ -7,7 +7,6 @@ import {
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 import CategoryName from "@/constants/category-names";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export default async function Page({
@@ -34,7 +33,9 @@ export default async function Page({
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>{categoryName}</BreadcrumbPage>
+            <BreadcrumbPage className="capitalize">
+              {categoryName.replace(/-/g, " ")}
+            </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>

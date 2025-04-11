@@ -1,7 +1,7 @@
 const CategoryNames = [
-    "Apparel",
-    "Electronics",
-    "Personal Care",
+    "apparel",
+    "electronics",
+    "personal-care",
 ]
 
 export default CategoryNames
