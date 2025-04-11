@@ -1,7 +1,6 @@
 import SearchBar from "./search";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { FaSearch } from "react-icons/fa";
+import { FaCartShopping } from "react-icons/fa6";
 
 export default function Header() {
   const links = [
@@ -12,13 +11,14 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-red-500 h-28">
-      <nav className="flex items-center h-full px-40 justify-between">
+    <header className="bg-red-500 h-28 px-32">
+      <nav className="flex items-center h-full justify-between">
         <h1 className="text-4xl font-bold">eThrift</h1>
         <SearchBar />
-        <div className="flex gap-2">
+        <div className="flex gap-4 items-center">
           <Button>Login</Button>
           <Button>Register</Button>
+          <FaCartShopping className="size-auto w-8" />
         </div>
       </nav>
     </header>
