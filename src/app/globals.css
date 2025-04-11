@@ -7,6 +7,11 @@ button {
   color: black;
 }
 
+button:hover {
+  background-color: #ece4d9;
+  cursor: pointer;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
