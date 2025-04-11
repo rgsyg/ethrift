@@ -23,25 +23,27 @@ export default function Categories() {
     },
     {
       categoryImg: personal,
-      categoryName: "Health & Personal Care",
+      categoryName: "Personal Care",
     },
   ];
 
   return (
-    <>
+    <section className="space-y-8 bg-secondary rounded-2xl p-6 pb-8">
       <h1 className="text-4xl text-center font-bold">Categories</h1>
-      <section className="flex gap-4 justify-around">
+      <div className="flex gap-4 justify-around">
         {categories.map((category) => (
           <Card key={category.categoryName} className="w-72">
             <CardHeader>
               <Image src={category.categoryImg} alt="Category alt" />
             </CardHeader>
             <CardFooter>
-              <p>Card Footer</p>
+              <p className="mx-auto font-bold text-2xl">
+                {category.categoryName}
+              </p>
             </CardFooter>
           </Card>
         ))}
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

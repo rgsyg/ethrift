@@ -11,7 +11,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-red-500 h-28 px-32">
+    <header className="h-28 px-32 bg-secondary">
       <nav className="flex items-center h-full justify-between">
         <h1 className="text-4xl font-bold">eThrift</h1>
         <SearchBar />
