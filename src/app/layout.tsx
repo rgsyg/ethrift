@@ -4,6 +4,7 @@ import "./globals.css";
 import Wrapper from "@/components/wrapper";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import ScrollTop from "@/components/scroll-top";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Header />
         <Wrapper>{children}</Wrapper>
         <Footer />
+        <ScrollTop />
       </body>
     </html>
   );
