@@ -12,6 +12,7 @@ import Image from "next/image";
 import product1 from "./images/product1.jpg";
 import product2 from "./images/product2.jpg";
 import product3 from "./images/product3.jpg";
+import useMounted from "@/hooks/useMounted";
 
 export default function TopProducts() {
   const products = [
@@ -41,6 +42,15 @@ export default function TopProducts() {
     },
   ];
 
+  function CarouselButtons() {
+    return (
+      <>
+        <CarouselPrevious />
+        <CarouselNext />
+      </>
+    );
+  }
+
   return (
     <section className="space-y-8 bg-secondary rounded-2xl p-6 pb-10">
       <h1 className="text-4xl text-center font-bold">Top Products</h1>
@@ -69,8 +79,7 @@ export default function TopProducts() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious suppressHydrationWarning />
-        <CarouselNext suppressHydrationWarning />
+        {useMounted() && <CarouselButtons />}
       </Carousel>
     </section>
   );

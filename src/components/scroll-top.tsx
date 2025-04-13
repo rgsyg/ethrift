@@ -1,5 +1,6 @@
 "use client";
 
+import useMounted from "@/hooks/useMounted";
 import { FaArrowUp } from "react-icons/fa";
 
 export default function ScrollTop() {
@@ -10,6 +11,8 @@ export default function ScrollTop() {
       behavior: "smooth",
     });
   }
+
+  if (!useMounted) return <h1>Loading...</h1>;
 
   return (
     <FaArrowUp
