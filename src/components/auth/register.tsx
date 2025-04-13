@@ -42,6 +42,15 @@ export default function Register() {
             </div>
           </div>
           <div className="flex items-center border-b-2">
+            <FaUser />
+            <Input
+              type="text"
+              placeholder="Username"
+              className="border-0 focus-visible:ring-0"
+              required
+            />
+          </div>
+          <div className="flex items-center border-b-2">
             <MdEmail />
             <Input
               type="email"
