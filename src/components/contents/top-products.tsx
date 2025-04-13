@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardHeader, CardFooter } from "../ui/card";
 import {
   Carousel,
@@ -25,35 +27,31 @@ export default function TopProducts() {
       src: product3,
       name: "Gadget Product",
     },
+    {
+      src: product1,
+      name: "Hair Product",
+    },
+    {
+      src: product2,
+      name: "Shoe Product",
+    },
+    {
+      src: product3,
+      name: "Gadget Product",
+    },
   ];
 
   return (
     <section className="space-y-8 bg-secondary rounded-2xl p-6 pb-10">
       <h1 className="text-4xl text-center font-bold">Top Products</h1>
       <Carousel
-        className="w-full max-w-svw"
+        className="w-full"
         opts={{
           align: "start",
           skipSnaps: true,
         }}
       >
-        <CarouselContent className="">
-          {products.map((product, i) => (
-            <CarouselItem className="flex-none" key={i}>
-              <Card className="w-72">
-                <CardHeader>
-                  <Image
-                    src={product.src}
-                    alt="Product alt"
-                    className="aspect-square object-cover"
-                  />
-                </CardHeader>
-                <CardFooter>
-                  <p className="mx-auto font-bold text-2xl">{product.name}</p>
-                </CardFooter>
-              </Card>
-            </CarouselItem>
-          ))}
+        <CarouselContent>
           {products.map((product, i) => (
             <CarouselItem className="flex-none" key={i}>
               <Card className="w-72">
@@ -71,8 +69,8 @@ export default function TopProducts() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious suppressHydrationWarning />
+        <CarouselNext suppressHydrationWarning />
       </Carousel>
     </section>
   );
