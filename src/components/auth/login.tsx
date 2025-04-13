@@ -20,7 +20,7 @@ export default function Login() {
       <DialogTrigger asChild>
         <Button variant="outline">Login</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md p-10 space-y-4">
+      <DialogContent className="sm:max-w-md p-10 flex flex-col gap-8">
         <DialogHeader>
           <DialogTitle className="text-center text-2xl">Login</DialogTitle>
         </DialogHeader>
