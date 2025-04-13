@@ -1,3 +1,5 @@
+import Login from "./auth/login";
+import Register from "./auth/register";
 import SearchBar from "./search";
 import { Button } from "./ui/button";
 import { FaCartShopping } from "react-icons/fa6";
@@ -16,8 +18,8 @@ export default function Header() {
         <h1 className="text-4xl font-bold">eThrift</h1>
         <SearchBar />
         <div className="flex gap-4 items-center">
-          <Button>Login</Button>
-          <Button>Register</Button>
+          <Login />
+          <Register />
           <FaCartShopping className="size-auto w-8" />
         </div>
       </nav>
