@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+::selection {
+  background-color: royalblue;
+}
+
 button {
   color: black;
 }
