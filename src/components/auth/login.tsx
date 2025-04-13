@@ -24,14 +24,15 @@ export default function Login() {
         <DialogHeader>
           <DialogTitle className="text-center text-2xl">Login</DialogTitle>
         </DialogHeader>
-        <div className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4">
           <div className="flex items-center border-b-2">
             <FaUser />
             <Input
               type="text"
               placeholder="Username"
               className="border-0 focus-visible:ring-0"
-            ></Input>
+              required
+            />
           </div>
           <div className="flex items-center border-b-2">
             <FaLock />
@@ -39,17 +40,16 @@ export default function Login() {
               type="password"
               placeholder="Password"
               className="border-0 focus-visible:ring-0"
-            ></Input>
+              required
+            />
           </div>
           <Link href="" className="hover:text-gray-600 text-sm w-fit">
             Forgot Password?
           </Link>
-        </div>
-        <DialogFooter>
-          <Button className="w-full bg-amber-300 hover:bg-amber-400!">
+          <Button className="w-full bg-amber-300 hover:bg-amber-400! mt-4">
             Login
           </Button>
-        </DialogFooter>
+        </form>
       </DialogContent>
     </Dialog>
   );
