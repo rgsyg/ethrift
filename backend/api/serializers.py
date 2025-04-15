@@ -4,19 +4,23 @@ from api.models import UserProfile, Product, Order
 
 class UserProfileCreateSerializer(serializers.ModelSerializer):
     username = serializers.CharField(write_only=True)
-    email = serializers.EmailField(write_only=True)
     password = serializers.CharField(write_only=True)
+    email = serializers.EmailField(write_only=True)
+    first_name = serializers.CharField(write_only=True)
+    last_name = serializers.CharField(write_only=True)
 
     class Meta:
         model = UserProfile
-        fields = ['username', 'email', 'password']
+        fields = ['first_name', 'last_name', 'username', 'email', 'password']
 
     def create(self, validated_data):
+        first_name = validated_data.pop('first_name')
+        last_name = validated_data.pop('last_name')
         username = validated_data.pop('username')
         email = validated_data.pop('email')
         password = validated_data.pop('password')
 
-        user = User.objects.create_user(username=username, email=email, password=password)
+        user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password)
         profile = UserProfile.objects.create(user=user, **validated_data)
         return profile
 
