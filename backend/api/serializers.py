@@ -1,5 +1,24 @@
 from rest_framework import serializers
+from django.contrib.auth.models import User
 from api.models import UserProfile, Product, Order
+
+class UserProfileCreateSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(write_only=True)
+    email = serializers.EmailField(write_only=True)
+    password = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = UserProfile
+        fields = ['username', 'email', 'password']
+
+    def create(self, validated_data):
+        username = validated_data.pop('username')
+        email = validated_data.pop('email')
+        password = validated_data.pop('password')
+
+        user = User.objects.create_user(username=username, email=email, password=password)
+        profile = UserProfile.objects.create(user=user, **validated_data)
+        return profile
 
 class UserProfileSerializer(serializers.ModelSerializer):
     user_username = serializers.ReadOnlyField(source='user.username')

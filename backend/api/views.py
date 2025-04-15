@@ -1,10 +1,15 @@
 from django.shortcuts import render
 from api.models import UserProfile, Product, Order
-from api.serializers import UserProfileSerializer, ProductSerializer, OrderSerializer
-from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView
-from rest_framework.permissions import IsAuthenticated
+from api.serializers import UserProfileCreateSerializer, UserProfileSerializer, ProductSerializer, OrderSerializer
+from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.permissions import AllowAny, IsAuthenticated
 
 # Create your views here.
+class UserProfileCreateView(CreateAPIView):
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileCreateSerializer
+    permission_classes = [AllowAny] # Allow anyone to create a profile.
+
 class UserProfileListView(ListAPIView):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
